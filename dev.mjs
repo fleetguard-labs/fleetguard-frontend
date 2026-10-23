@@ -1,0 +1,1 @@
+import{spawn}from'node:child_process';const children=[spawn(process.execPath,['server.mjs'],{cwd:new URL('../fleetguard-backend/',import.meta.url),stdio:'inherit'}),spawn(process.execPath,['server.mjs'],{cwd:new URL('./',import.meta.url),stdio:'inherit'})];for(const s of ['SIGINT','SIGTERM'])process.on(s,()=>{children.forEach(c=>c.kill());process.exit();});
